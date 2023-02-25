@@ -1,48 +1,67 @@
 "use client";
 
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "./page.module.css";
-import * as THREE from "three";
-import { useRef, useState } from "react";
+import { use, useEffect, useLayoutEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-
-const inter = Inter({ subsets: ["latin"] });
+import { BufferAttribute, Mesh, PlaneGeometry } from "three";
+import * as THREE from "three";
 
 function Box(props: JSX.IntrinsicElements["mesh"]) {
-  // This reference will give us direct access to the THREE.Mesh object
-  const ref = useRef<THREE.Mesh>(null!);
-  // Hold state for hovered and clicked events
-  const [hovered, hover] = useState(false);
-  const [clicked, click] = useState(false);
-  // Rotate mesh every frame, this is outside of React without overhead
-  useFrame((state, delta) => (ref.current.rotation.x += 0.01));
+  const meshRef = useRef<Mesh>(null!);
+  useFrame(() => {
+    meshRef.current.rotation.x += 0.001;
+    meshRef.current.rotation.y += 0.001;
+  });
 
   return (
-    <mesh
-      {...props}
-      ref={ref}
-      scale={clicked ? 1.5 : 1}
-      onClick={(event) => click(!clicked)}
-      onPointerOver={(event) => hover(true)}
-      onPointerOut={(event) => hover(false)}
-    >
+    <mesh {...props} ref={meshRef}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+      <meshStandardMaterial color={"orange"} />
     </mesh>
   );
 }
 
+const BackgroundPlane = () => {
+  const SEGMENTS = 100;
+  const meshRef = useRef<Mesh>(null!);
+  const geometry = new THREE.PlaneGeometry(10, 10, SEGMENTS, SEGMENTS);
+  const positionAttribute = geometry.getAttribute("position");
+
+  useLayoutEffect(() => {
+    meshRef.current?.updateMorphTargets();
+  }, []);
+
+  useFrame(() => {
+    for (let vertexId = 0; vertexId < positionAttribute.count; vertexId++) {
+      (positionAttribute as BufferAttribute).setZ(
+        vertexId,
+        Math.sin(Math.random())
+      );
+      positionAttribute.needsUpdate = true;
+    }
+  });
+
+  return (
+    <mesh
+      position={[0, 1, -2]}
+      rotation={[-0.5, 0, 0]}
+      ref={meshRef}
+      geometry={geometry}
+    >
+      <meshStandardMaterial color={"blue"} wireframe />
+    </mesh>
+  );
+};
+
 export default function Home() {
   return (
-    <main>
+    <div className='fixed w-full h-full'>
       <Canvas>
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
+        <Box position={[0, 0, 0]} />
+        <BackgroundPlane />
       </Canvas>
-    </main>
+    </div>
   );
 }
