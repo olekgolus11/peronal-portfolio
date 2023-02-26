@@ -4,6 +4,7 @@ import { use, useEffect, useLayoutEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { BufferAttribute, Mesh, PlaneGeometry } from "three";
 import * as THREE from "three";
+import perlinNoise from "./components/GradientBackground/perlinNoise";
 
 function Box(props: JSX.IntrinsicElements["mesh"]) {
   const meshRef = useRef<Mesh>(null!);
@@ -25,16 +26,16 @@ const BackgroundPlane = () => {
   const meshRef = useRef<Mesh>(null!);
   const geometry = new THREE.PlaneGeometry(10, 10, SEGMENTS, SEGMENTS);
   const positionAttribute = geometry.getAttribute("position");
-
-  useLayoutEffect(() => {
-    meshRef.current?.updateMorphTargets();
-  }, []);
+  let time = 0;
 
   useFrame(() => {
+    time += 0.005;
     for (let vertexId = 0; vertexId < positionAttribute.count; vertexId++) {
+      const positionX = (positionAttribute as BufferAttribute).getX(vertexId);
+      const positionY = (positionAttribute as BufferAttribute).getY(vertexId);
       (positionAttribute as BufferAttribute).setZ(
         vertexId,
-        Math.sin(Math.random())
+        perlinNoise(positionX, positionY, time)
       );
       positionAttribute.needsUpdate = true;
     }
