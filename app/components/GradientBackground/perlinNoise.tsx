@@ -1,5 +1,8 @@
 // This is a port of Ken Perlin's Java code. The
 // original Java code is at http://cs.nyu.edu/%7Eperlin/noise/.
+
+import { BufferAttribute, BufferGeometry } from "three";
+
 // Note that in this version, a number from 0 to 1 is returned.
 const perlinNoise = (x: number, y: number, z: number) => {
   let p = new Array(512);
@@ -88,4 +91,28 @@ function scale(n: number) {
   return (1 + n) / 2;
 }
 
-export default perlinNoise;
+const generatePerlinNoise = (
+  geometry: BufferGeometry,
+  animationSpeed: number,
+  scale: number = 1,
+  intensity: number = 1
+) => {
+  const positionAttribute = geometry.getAttribute("position");
+  let time = 0;
+
+  function updateNoise() {
+    time += animationSpeed / 1000;
+    for (let vertexId = 0; vertexId < positionAttribute.count; vertexId++) {
+      const positionX = (positionAttribute as BufferAttribute).getX(vertexId);
+      const positionY = (positionAttribute as BufferAttribute).getY(vertexId);
+      (positionAttribute as BufferAttribute).setZ(
+        vertexId,
+        intensity * perlinNoise(scale * positionX, scale * positionY, time)
+      );
+      positionAttribute.needsUpdate = true;
+    }
+  }
+  return updateNoise;
+};
+
+export default generatePerlinNoise;
