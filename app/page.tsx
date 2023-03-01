@@ -15,7 +15,7 @@ function Box(props: JSX.IntrinsicElements["mesh"]) {
   return (
     <mesh {...props} ref={meshRef}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={"orange"} />
+      <meshNormalMaterial />
     </mesh>
   );
 }
