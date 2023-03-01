@@ -12,7 +12,7 @@ const GradientBackground = () => {
   const ANIMATION_INTENSITY = 3;
 
   const planeGeometry = new THREE.PlaneGeometry(10, 10, SEGMENTS, SEGMENTS);
-  const updateNoise = generatePerlinNoise(
+  const updateWave = generatePerlinNoise(
     planeGeometry,
     ANIMATION_SPEED,
     ANIMATION_SCALE,
@@ -20,7 +20,7 @@ const GradientBackground = () => {
   );
 
   useFrame(() => {
-    updateNoise();
+    updateWave();
   });
 
   return (
@@ -30,7 +30,7 @@ const GradientBackground = () => {
       ref={meshRef}
       geometry={planeGeometry}
     >
-      <meshStandardMaterial color={"blue"} wireframe />
+      <shaderMaterial vertexShader='' fragmentShader='' />
     </mesh>
   );
 };
