@@ -23,7 +23,7 @@ function Box(props: JSX.IntrinsicElements["mesh"]) {
 export default function Home() {
   return (
     <div className='fixed w-full h-full'>
-      <Canvas>
+      <Canvas camera={{ position: [0, -8, 3] }}>
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
