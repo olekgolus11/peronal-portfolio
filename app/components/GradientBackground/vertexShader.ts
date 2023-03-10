@@ -102,12 +102,15 @@ float snoise(vec3 v)
                                 dot(p2,x2), dot(p3,x3) ) );
   }
 
+////////////////////////////////////////////////////////////////////////////////////////
 
   void main() {
 
-    float displacement = snoise(position);
+    float amplitude = 0.5;
+    float scale = 0.5;
+    float displacement = snoise(vec3(position * scale));
 
-    vec3 newPosition = position + normal * displacement;
+    vec3 newPosition = position + normal * displacement * amplitude;
   
     vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
     vec4 viewPosition = viewMatrix * modelPosition;

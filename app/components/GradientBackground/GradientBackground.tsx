@@ -18,6 +18,7 @@ const GradientBackground = () => {
       rotation={[-0.0, 0, 0]}
       ref={meshRef}
       geometry={planeGeometry}
+      scale={1}
     >
       <shaderMaterial
         wireframe
