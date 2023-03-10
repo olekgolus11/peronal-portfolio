@@ -55,7 +55,7 @@ const GradientBackground = () => {
 
   return (
     <mesh
-      position={[0, 1, -2]}
+      position={[0, 1, -1]}
       rotation={[-0.0, 0, 0]}
       ref={meshRef}
       geometry={planeGeometry}
