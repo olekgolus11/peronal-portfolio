@@ -1,11 +1,15 @@
 const fragmentShader = `
+
+varying float v_displacement;
+
+
 void main() {
-    // 500.0 is an arbitrary value to "normalize"
-  // my coordinate system
-  // In these examples consider the value of x 
-  // to go from 0 to 1.
-  float x = gl_FragCoord.x / 1500.0;
-  vec3 color = vec3(x);
+
+  vec3 colorBottom = vec3(0.416, 0.51, 0.98);
+  vec3 colorTop = vec3(0.988, 0.36, 0.49);
+
+
+  vec3 color = mix(colorBottom, colorTop, v_displacement + 0.8);
 
   gl_FragColor = vec4(color,1.0);
 }
