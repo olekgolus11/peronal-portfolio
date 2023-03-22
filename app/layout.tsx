@@ -1,18 +1,38 @@
-import './globals.css'
+"use client";
+
+import "./globals.css";
+import GradientBackground from "./components/GradientBackground/GradientBackground";
+import { Canvas } from "@react-three/fiber";
+import { Libre_Caslon_Display } from "next/font/google";
+
+// If loading a variable font, you don't need to specify the font weight
+const libre_caslon_display = Libre_Caslon_Display({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-libre-caslon-display",
+});
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en' className={libre_caslon_display.variable}>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <div className='absolute w-full h-screen -z-10'>
+          <Canvas camera={{ position: [0, -8, 3] }}>
+            <GradientBackground />
+          </Canvas>
+        </div>
+        <div>{children}</div>
+      </body>
     </html>
-  )
+  );
 }
