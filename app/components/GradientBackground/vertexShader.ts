@@ -116,21 +116,9 @@ float cnoise(vec3 P)
   void main() {
 
     float amplitude = 0.5;
-    float scale = 0.99;
-    v_displacement = cnoise(vec3(position.x, position.y, position.z + u_time));
+    float scale = 0.1;
+    v_displacement = cnoise(vec3(position.x, position.y, position.z + 0.5 * u_time));
     vec3 newPosition = position + normal * v_displacement * amplitude;
-    v_displacement = cnoise(vec3(newPosition.x, newPosition.y, newPosition.z + 0.1*u_time));
-    newPosition = position + normal * v_displacement * amplitude;
-    v_displacement = cnoise(vec3(newPosition.x, newPosition.y, newPosition.z + 0.2*u_time));
-    newPosition = position + normal * v_displacement * amplitude;
-    v_displacement = cnoise(vec3(newPosition.x, newPosition.y, newPosition.z + 0.3*u_time));
-    newPosition = position + normal * v_displacement * amplitude;
-    v_displacement = cnoise(vec3(newPosition.x, newPosition.y, newPosition.z + 0.4*u_time));
-    newPosition = position + normal * v_displacement * amplitude;
-    v_displacement = cnoise(vec3(newPosition.x, newPosition.y, newPosition.z + 0.5*u_time));
-    newPosition = position + normal * v_displacement * amplitude;
-    v_displacement = cnoise(vec3(newPosition.x, newPosition.y, newPosition.z + 0.6*u_time));
-    newPosition = position + normal * v_displacement * amplitude;
     v_uv = uv;
 
   
