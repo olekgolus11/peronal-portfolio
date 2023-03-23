@@ -11,7 +11,7 @@ void main() {
   vec3 colorTop = vec3(0.416,0.067,0.796);
 
 
-  vec3 color = mix(colorBottom, colorTop, v_displacement * 2.0);
+  vec3 color = mix(colorBottom, colorTop, v_displacement * 3.0);
 
   gl_FragColor = vec4(color,1.0);
 }

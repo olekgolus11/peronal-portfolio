@@ -2,12 +2,14 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className='container mx-auto h-screen'>
+    <div className='container lg:mx-auto h-screen'>
       <div className='flex flex-col h-full justify-center'>
-        <p className='text-7xl md:text-8xl lg:text-9xl font-serif'>
+        <p className='text-7xl sm:text-9xl md:text-[10rem] lg:text-[10rem] xl:text-[12rem] font-serif'>
           Aleksander
         </p>
-        <p className='text-6xl md:text-7xl lg:text-8xl font-serif'>Golus</p>
+        <p className='text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem] font-serif'>
+          Golus
+        </p>
         <p className='text-2xl font-serif justify-self-end mt-40'>
           Front-end developer
         </p>
