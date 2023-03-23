@@ -9,11 +9,15 @@ const GradientBackground = () => {
   const meshRef = useRef<Mesh>(null!);
   const SEGMENTS = 1000;
   const planeGeometry = new THREE.PlaneGeometry(20, 20, SEGMENTS, SEGMENTS);
+  const windowSize = new THREE.Vector2(window.innerWidth, window.innerHeight);
 
   const uniforms = useMemo(
     () => ({
       u_time: {
         value: 0.0,
+      },
+      u_resolution: {
+        value: windowSize,
       },
     }),
     []
@@ -22,6 +26,7 @@ const GradientBackground = () => {
   useFrame((state) => {
     const { clock } = state;
     uniforms.u_time.value = 0.4 * clock.getElapsedTime();
+    uniforms;
   });
 
   return (
