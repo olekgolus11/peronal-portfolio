@@ -1,4 +1,4 @@
-const vertexShader = `
+export default /*glsl*/ `
 //
 // GLSL textureless classic 3D noise "cnoise",
 // with an RSL-style periodic variant "pnoise".
@@ -115,7 +115,8 @@ float cnoise(vec3 P)
 
   void main() {
 
-    v_displacement = cnoise(vec3(position.x, position.y, position.z + 0.5 * u_time)) + 0.5;
+    float scale = 0.8;
+    v_displacement = cnoise(vec3(scale * position.x, scale * position.y, position.z + 0.5 * u_time)) + 0.5;
     vec3 newPosition = position + normal * v_displacement * 0.8;
     v_uv = uv;
 
@@ -127,5 +128,3 @@ float cnoise(vec3 P)
     gl_Position = projectedPosition;
   }
 `;
-
-export default vertexShader;
