@@ -1,4 +1,4 @@
-const fragmentShader = `
+export default /*glsl*/ `
 
 varying float v_displacement;
 uniform vec2 u_resolution;
@@ -16,5 +16,3 @@ void main() {
   gl_FragColor = vec4(color,1.0);
 }
 `;
-
-export default fragmentShader;
