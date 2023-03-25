@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div className='container lg:mx-auto h-screen'>
@@ -10,7 +8,7 @@ export default function Home() {
         <p className='text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem] font-serif'>
           Golus
         </p>
-        <p className='text-2xl font-serif justify-self-end mt-40'>
+        <p className='text-4xl font-serif justify-self-end mt-40'>
           Front-end developer
         </p>
       </div>

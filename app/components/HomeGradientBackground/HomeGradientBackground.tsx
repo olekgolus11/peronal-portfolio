@@ -5,7 +5,7 @@ import * as THREE from "three";
 import vertexShader from "./vertexShader";
 import fragmentShader from "./fragmentShader";
 
-const GradientBackground = () => {
+const HomeGradientBackground = () => {
   const meshRef = useRef<Mesh>(null!);
   const SEGMENTS = 1000;
   const planeGeometry = new THREE.PlaneGeometry(20, 20, SEGMENTS, SEGMENTS);
@@ -46,4 +46,4 @@ const GradientBackground = () => {
   );
 };
 
-export default GradientBackground;
+export default HomeGradientBackground;
