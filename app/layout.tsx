@@ -1,7 +1,8 @@
 "use client";
 
 import "./globals.css";
-import GradientBackground from "./components/GradientBackground/GradientBackground";
+import HomeGradientBackground from "./components/HomeGradientBackground/HomeGradientBackground";
+import MyWorkGradientBackground from "./components/MyWorkGradientBackground/MyWorkGradientBackground";
 import { Canvas } from "@react-three/fiber";
 import { Libre_Caslon_Display } from "next/font/google";
 
@@ -28,7 +29,13 @@ export default function RootLayout({
       <body>
         <div className='absolute w-full h-screen -z-10'>
           <Canvas camera={{ position: [0, -8, 3] }}>
-            <GradientBackground />
+            <HomeGradientBackground />
+          </Canvas>
+          <Canvas
+            camera={{ position: [0, -8, 3] }}
+            style={{ backgroundColor: "#0f0f0f" }}
+          >
+            <MyWorkGradientBackground />
           </Canvas>
         </div>
         <div>{children}</div>
