@@ -114,9 +114,10 @@ float cnoise(vec3 P)
 
   void main() {
 
-    float scale = 0.8;
-    v_displacement = cnoise(vec3(scale * position.x, scale * position.y, position.z + 0.5 * u_time)) + 0.5;
-    vec3 newPosition = position + normal * v_displacement * 0.8;
+    float scale = 0.3;
+    float speed = 1.5;
+    v_displacement = cnoise(vec3(scale * position.x + speed * u_time, scale * position.y , position.z + speed * u_time)) + 0.5;
+    vec3 newPosition = position + normal * v_displacement * 2.8;
 
   
     vec4 modelViewPosition = modelViewMatrix * vec4(newPosition, 1.0);
