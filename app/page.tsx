@@ -1,17 +1,20 @@
-export default function Home() {
+"use client";
+
+import LandingPage from "./components/LandingPage/LandingPage";
+import MyWorkGradientBackground from "./components/MyWorkGradientBackground/MyWorkGradientBackground";
+
+export default function MainPage() {
   return (
-    <div className='container lg:mx-auto h-screen'>
-      <div className='flex flex-col h-full justify-center'>
-        <p className='text-7xl sm:text-9xl md:text-[10rem] lg:text-[10rem] xl:text-[12rem] font-serif'>
-          Aleksander
+    <>
+      <LandingPage />
+      <div className='relative'>
+        <p className='text-9xl text-rose-50 text-center font-serif pt-24'>
+          MY WORK
         </p>
-        <p className='text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem] font-serif'>
-          Golus
-        </p>
-        <p className='text-4xl font-serif justify-self-end mt-40'>
-          Front-end developer
-        </p>
+        <div className='h-screen absolute w-full top-0 -z-10'>
+          <MyWorkGradientBackground />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
