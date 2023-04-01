@@ -1,38 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">PERSONAL PORTOFLIO</h1>
+<div align="center" width="100%" >
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="50px" style="padding-right:10px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="50px" style="padding-right:10px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"  width="50px" style="padding-right:10px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="50px" style="padding-right:10px;" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" width="50px" style="padding-right:10px;" />
+</div>
+<p></p>
+<p align="center">My first project with the use of WebGL</p>
 
-## Getting Started
+## Genesis
+In 2020 I became interested in CGI and I was excited with how much it can offer. When I first encountered this [Bruno Simon's portfolio website](https://bruno-simon.com) in late 2021 I realised that I could create something unique and beautiful with the use of WebGL, but I didn't have any experience in web development... so I began my learning journey. Since then I've spent so much time and effort learning all of the tools that I needed, and I actually enjoyed it. 
+But now that I've learned most of the fundamentals I created [this](https://aleksandergolus.vercel.app) website (not yet 😁) and I'm so glad that I did it.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Tech stack
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="26px" align="left" style="padding-right:5px;" /> 
+I used React because I know it and I feel comfortable using it.
+<p></p>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="26px" align="left" style="padding-right:5px;" />
+I wanted to learn more, so I tried Nextjs. I also wanted to use it for my upcoming projects because it's packed with many features (like SSR, Router etc.)
+<p></p>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" width="26px" align="left" style="padding-right:5px;" />
+I just can't go back to JS anymore
+<p></p>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="26px" align="left" style="padding-right:5px;" />
+I've heard so much about Tailwind and I was so excited about it that I finally used it in my project. Since I didn't want to rely on CSS in my portfolio (because of Threejs) I thought that it could be a great starting point to use it.
+<p></p>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" width="26px" align="left" style="padding-right:5px;" />
+I actually used React Three Fiber, which provides a declarative way of writing Threejs. It is much more convenient that the original framework.
