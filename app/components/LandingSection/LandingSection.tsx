@@ -1,4 +1,4 @@
-const LandingPage = () => {
+const LandingSection = () => {
   return (
     <div className='container lg:mx-auto h-screen text-slate-50 text-center'>
       <div className='flex flex-col h-full justify-center'>
@@ -16,4 +16,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default LandingSection;
