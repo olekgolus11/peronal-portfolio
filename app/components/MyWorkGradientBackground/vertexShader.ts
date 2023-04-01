@@ -106,6 +106,18 @@ float cnoise(vec3 P)
   float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x);
   return 2.2 * n_xyz;
 }
+//////////////////
+float fbm(vec3 x) {
+	float v = 0.0;
+	float a = 0.4;
+	vec3 shift = vec3(100);
+	for (int i = 0; i < 2; ++i) {
+		v += a * cnoise(x);
+		x = x * 2.0 + shift;
+		a *= 0.5;
+	}
+	return v;
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -115,9 +127,10 @@ float cnoise(vec3 P)
   void main() {
 
     float scale = 0.3;
-    float speed = 1.5;
-    v_displacement = cnoise(vec3(scale * position.x + speed * u_time, scale * position.y , position.z + speed * u_time)) + 0.5;
-    vec3 newPosition = position + normal * v_displacement * 2.8;
+    float speed = 0.5;
+    vec3 pos = vec3(scale * position.x, scale * position.y,scale * position.z + speed * u_time);
+    v_displacement = cnoise(pos + cnoise(pos)) + 0.5;
+    vec3 newPosition = position + normal * v_displacement * 2.0;
 
   
     vec4 modelViewPosition = modelViewMatrix * vec4(newPosition, 1.0);

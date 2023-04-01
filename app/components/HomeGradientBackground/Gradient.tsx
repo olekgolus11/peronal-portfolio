@@ -9,8 +9,8 @@ import fragmentShader from "./fragmentShader";
 
 const Gradient = () => {
   const meshRef = useRef<Mesh>(null!);
-  const SEGMENTS = 1000;
-  const sphereGeometry = new THREE.SphereGeometry(5, SEGMENTS, SEGMENTS);
+  const SEGMENTS = 500;
+  const sphereGeometry = new THREE.SphereGeometry(4, SEGMENTS, SEGMENTS);
   const windowSize = new THREE.Vector2(window.innerWidth, window.innerHeight);
 
   const uniforms = useMemo(
@@ -34,10 +34,10 @@ const Gradient = () => {
   return (
     <mesh
       position={[0, 0, -70]}
-      rotation={[0.75, 0, 0]}
+      rotation={[0, 0, 0]}
       ref={meshRef}
       geometry={sphereGeometry}
-      scale={4}
+      scale={6}
     >
       <shaderMaterial
         fragmentShader={fragmentShader}
