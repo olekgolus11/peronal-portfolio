@@ -8,7 +8,7 @@ export default function MainPage() {
     <>
       <LandingPage />
       <div className='relative'>
-        <p className='text-[12rem] text-slate-50 text-center font-serif pt-12'>
+        <p className='text-7xl sm:text-9xl md:text-[10rem] lg:text-[10rem] xl:text-[12rem] font-serif text-slate-50 text-center pt-12'>
           MY WORK
         </p>
         <div className='h-screen absolute w-full top-0 -z-10'>
