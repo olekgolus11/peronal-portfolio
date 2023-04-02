@@ -1,5 +1,4 @@
 import { Canvas } from "@react-three/fiber";
-import { useRef } from "react";
 import Gradient from "./Gradient";
 
 const HomeGradientBackground = () => {
