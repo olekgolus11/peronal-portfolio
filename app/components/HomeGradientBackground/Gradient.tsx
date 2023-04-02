@@ -9,7 +9,7 @@ import fragmentShader from "./fragmentShader";
 
 const Gradient = () => {
   const meshRef = useRef<Mesh>(null!);
-  const SEGMENTS = 500;
+  const SEGMENTS = 800;
   const sphereGeometry = new THREE.SphereGeometry(4, SEGMENTS, SEGMENTS);
   const windowSize = new THREE.Vector2(window.innerWidth, window.innerHeight);
   const mouseInit = new THREE.Vector2(0, 0);

@@ -166,7 +166,7 @@ vec3 translate(vec3 v, vec3 t, float value) {
     float scale = 0.3;
     float speed = 0.5;
     vec3 pos = vec3(scale * position.x, scale * position.y,scale * position.z + speed * u_time);
-    v_displacement = cnoise(pos + cnoise(pos + fbm(pos ))) + 0.5;
+    v_displacement = cnoise(pos + cnoise(pos + fbm(pos))) + 0.5;
     vec3 newPosition = position + normal * v_displacement * 3.0;
     newPosition = rotate(newPosition, vec3(-u_mouse.y, u_mouse.x, 0.0), 0.1);
     newPosition = translate(newPosition, vec3(-u_mouse.x, -u_mouse.y, 0.0), 0.3);
