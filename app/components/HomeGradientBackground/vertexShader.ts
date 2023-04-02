@@ -13,6 +13,8 @@ export default /*glsl*/ `
 // https://github.com/ashima/webgl-noise
 //
 
+#define PI 3.14159265359
+
 vec3 mod289(vec3 x)
 {
   return x - floor(x * (1.0 / 289.0)) * 289.0;
@@ -119,9 +121,40 @@ float fbm(vec3 x) {
 	return v;
 }
 
+vec3 rotateX(vec3 v, float angle) {
+  float s = sin(angle);
+  float c = cos(angle);
+  float ynew = v.y * c - v.z * s;
+  float znew = v.y * s + v.z * c;
+  return vec3(v.x, ynew, znew);
+}
+
+vec3 rotateY(vec3 v, float angle) {
+  float s = sin(angle);
+  float c = cos(angle);
+  float xnew = v.x * c + v.z * s;
+  float znew = -v.x * s + v.z * c;
+  return vec3(xnew, v.y, znew);
+}
+
+vec3 rotateZ(vec3 v, float angle) {
+  float s = sin(angle);
+  float c = cos(angle);
+  float xnew = v.x * c - v.y * s;
+  float ynew = v.x * s + v.y * c;
+  return vec3(xnew, ynew, v.z);
+}
+
+vec3 rotate(vec3 v, vec3 axis, float angle) {
+  v = rotateX(v, axis.x * angle);
+  v = rotateY(v, axis.y * angle);
+  return v;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////
 
   uniform float u_time;
+  uniform vec2 u_mouse;
   varying float v_displacement;
 
   void main() {
@@ -131,6 +164,7 @@ float fbm(vec3 x) {
     vec3 pos = vec3(scale * position.x, scale * position.y,scale * position.z + speed * u_time);
     v_displacement = cnoise(pos + cnoise(pos + fbm(pos ))) + 0.5;
     vec3 newPosition = position + normal * v_displacement * 3.0;
+    newPosition = rotate(newPosition, vec3(-u_mouse.y, u_mouse.x, 0.0), 0.1);
 
   
     vec4 modelViewPosition = modelViewMatrix * vec4(newPosition, 1.0);

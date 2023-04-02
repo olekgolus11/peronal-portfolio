@@ -12,6 +12,7 @@ const Gradient = () => {
   const SEGMENTS = 500;
   const sphereGeometry = new THREE.SphereGeometry(4, SEGMENTS, SEGMENTS);
   const windowSize = new THREE.Vector2(window.innerWidth, window.innerHeight);
+  const mouseInit = new THREE.Vector2(0, 0);
 
   const uniforms = useMemo(
     () => ({
@@ -21,14 +22,18 @@ const Gradient = () => {
       u_resolution: {
         value: windowSize,
       },
+      u_mouse: {
+        value: mouseInit,
+      },
     }),
     []
   );
 
   useFrame((state) => {
-    const { clock } = state;
+    const { clock, mouse } = state;
     uniforms.u_time.value = 0.4 * clock.getElapsedTime();
-    uniforms;
+    uniforms.u_mouse.value = mouse;
+    console.log(uniforms.u_mouse.value);
   });
 
   return (
