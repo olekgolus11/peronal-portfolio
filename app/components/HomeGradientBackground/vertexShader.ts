@@ -151,6 +151,10 @@ vec3 rotate(vec3 v, vec3 axis, float angle) {
   return v;
 }
 
+vec3 translate(vec3 v, vec3 t, float value) {
+  return v + t * value;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////
 
   uniform float u_time;
@@ -165,6 +169,7 @@ vec3 rotate(vec3 v, vec3 axis, float angle) {
     v_displacement = cnoise(pos + cnoise(pos + fbm(pos ))) + 0.5;
     vec3 newPosition = position + normal * v_displacement * 3.0;
     newPosition = rotate(newPosition, vec3(-u_mouse.y, u_mouse.x, 0.0), 0.1);
+    newPosition = translate(newPosition, vec3(-u_mouse.x, -u_mouse.y, 0.0), 0.3);
 
   
     vec4 modelViewPosition = modelViewMatrix * vec4(newPosition, 1.0);
