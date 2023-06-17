@@ -32,7 +32,7 @@
   }
 
   .text-p {
-    @apply text-base md:text-base lg:text-lg xl:text-xl;
+    @apply text-sm lg:text-base xl:text-lg;
   }
 }
 
