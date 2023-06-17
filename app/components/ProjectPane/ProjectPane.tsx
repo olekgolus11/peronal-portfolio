@@ -19,19 +19,19 @@ const ProjectPane = () => {
     <div className='flex my-14 h-[60vh] page-container pane'>
       <div className='flex flex-col p-14 gap-14'>
         <p className='text-white text-h6 font-serif'>IDEMIAN</p>
-        <div className='grid grid-cols-12 gap-10 flex-1'>
-          <div className='col-span-2 flex flex-col justify-evenly'>
+        <div className='flex gap-10 flex-1'>
+          <div className='flex flex-col justify-evenly'>
             <p className='text-slate-50'>Overview</p>
             <p className='text-slate-50'>Details</p>
             <p className='text-slate-50'>Screenshots</p>
           </div>
-          <div className='col-span-10'>{projectOverviewText()}</div>
+          <div className=''>{projectOverviewText()}</div>
         </div>
       </div>
       <img
         src='/idemian2.png'
         alt='idemian app png'
-        className='object-contain border-l rounded-r-md border-gray-100 ml-auto'
+        className='object-contain border-l rounded-r-md border-gray-100 ml-auto hidden md:block'
       />
     </div>
   );
