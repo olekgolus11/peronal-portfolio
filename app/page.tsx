@@ -2,6 +2,7 @@
 
 import LandingSection from "./components/LandingSection/LandingSection";
 import MyWorkGradientBackground from "./components/MyWorkGradientBackground/MyWorkGradientBackground";
+import ProjectPane from "./components/ProjectPane/ProjectPane";
 import TextSlider from "./components/TextSlider/TextSlider";
 
 export default function MainPage() {
@@ -14,6 +15,7 @@ export default function MainPage() {
           <MyWorkGradientBackground />
         </div>
       </div>
+      <ProjectPane />
     </>
   );
 }

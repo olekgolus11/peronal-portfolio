@@ -33,7 +33,6 @@ const Gradient = () => {
     const { clock, mouse } = state;
     uniforms.u_time.value = 0.4 * clock.getElapsedTime();
     uniforms.u_mouse.value = mouse;
-    console.log(uniforms.u_mouse.value);
   });
 
   return (
