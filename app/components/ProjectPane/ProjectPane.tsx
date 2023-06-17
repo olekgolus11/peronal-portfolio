@@ -1,13 +1,14 @@
 const ProjectPane = () => {
-  const projectOverviewText = () => {
+  const paneContentText = () => {
     return (
       <>
-        <p className='text-slate-50'>
-          Idemian is a web application made for IDEMIA by me and my friends from
-          university.
+        <p className=' text-blue-200 font-bold font-serif mb-1'>Overview</p>
+        <p className='text-slate-50 text-p'>
+          Idemian is a web application made for @IDEMIA as a part of
+          university's group project called "Projekt Innowacja".
         </p>
         <br />
-        <p className='text-slate-50'>
+        <p className='text-slate-50 text-p'>
           It is an application that is used both for onboarding new employees as
           well as for entartainment during company events.
         </p>
@@ -16,17 +17,10 @@ const ProjectPane = () => {
   };
 
   return (
-    <div className='flex my-14 h-[60vh] page-container pane'>
+    <div className='flex my-10 h-[60vh] page-container pane'>
       <div className='flex flex-col p-14 gap-14'>
         <p className='text-white text-h6 font-serif'>IDEMIAN</p>
-        <div className='flex gap-10 flex-1'>
-          <div className='flex flex-col justify-evenly'>
-            <p className='text-slate-50'>Overview</p>
-            <p className='text-slate-50'>Details</p>
-            <p className='text-slate-50'>Screenshots</p>
-          </div>
-          <div className=''>{projectOverviewText()}</div>
-        </div>
+        <div className=''>{paneContentText()}</div>
       </div>
       <img
         src='/idemian2.png'
