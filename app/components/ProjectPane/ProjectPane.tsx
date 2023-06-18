@@ -78,12 +78,12 @@ const ProjectPane = () => {
       </div>
       <div className='flex flex-col ml-auto border-l border-gray-100 h-full'>
         <img
-          src='/idemian2.png'
+          src='/idemian.png'
           alt='idemian app png'
-          className='object-contain rounded-r-md hidden md:block flex-shrink h-full '
+          className='object-contain rounded-r-md hidden md:block flex-shrink h-5/6 border-b border-gray-100'
         />
-        <div className='h-full'>
-          <p>{"< 1 / 6 >"}</p>
+        <div className='h-full flex items-center justify-center'>
+          <p className='text-slate-50'>{"< 1 / 6 >"}</p>
         </div>
       </div>
     </div>
