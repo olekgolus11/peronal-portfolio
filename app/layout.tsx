@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang='en' className={libre_caslon_display.variable}>
       <head />
-      <body>
+      <body className='dark'>
         <HomeGradientBackground />
         <div>{children}</div>
       </body>

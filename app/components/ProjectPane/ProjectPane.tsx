@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../shadcn-components/accordion";
+import { Button } from "../shadcn-components/button";
 
 const ProjectPane = () => {
   const paneContent = () => {
@@ -16,7 +17,7 @@ const ProjectPane = () => {
           defaultValue='item-1'
         >
           <AccordionItem value='item-1' className='border-slate-500'>
-            <AccordionTrigger className='text-slate-50'>
+            <AccordionTrigger>
               <p>Overview</p>
             </AccordionTrigger>
             <AccordionContent>
@@ -83,7 +84,9 @@ const ProjectPane = () => {
           className='object-contain rounded-r-md hidden md:block flex-shrink h-5/6 border-b border-gray-100'
         />
         <div className='h-full flex items-center justify-center'>
-          <p className='text-slate-50'>{"< 1 / 6 >"}</p>
+          <Button>{"<"}</Button>
+          <p className='text-slate-50'>{"1 / 6"}</p>
+          <Button>{">"}</Button>
         </div>
       </div>
     </div>
