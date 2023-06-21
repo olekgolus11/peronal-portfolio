@@ -11,9 +11,7 @@ export default function MainPage() {
       <LandingSection />
       <div className='sticky top-0'>
         <TextSlider text='MY WORK' />
-        <div className='h-screen absolute w-full top-0 -z-10'>
-          <MyWorkGradientBackground />
-        </div>
+        <MyWorkGradientBackground />
       </div>
       <ProjectPane />
     </>
