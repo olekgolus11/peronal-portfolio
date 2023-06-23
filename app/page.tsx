@@ -14,6 +14,9 @@ export default function MainPage() {
         <TextSlider text='MY WORK' />
         <MyWorkGradientBackground />
       </div>
+      <div className='flex gap-4'>
+        <p>Elo</p>
+      </div>
       <ProjectPane {...projectPaneTexts[0]} />
     </>
   );
