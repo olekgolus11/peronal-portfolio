@@ -1,5 +1,6 @@
 "use client";
 
+import projectPaneTexts from "@/utils/texts/projectPaneTexts";
 import LandingSection from "./components/LandingSection/LandingSection";
 import MyWorkGradientBackground from "./components/MyWorkGradientBackground/MyWorkGradientBackground";
 import ProjectPane from "./components/ProjectPane/ProjectPane";
@@ -13,7 +14,7 @@ export default function MainPage() {
         <TextSlider text='MY WORK' />
         <MyWorkGradientBackground />
       </div>
-      <ProjectPane />
+      <ProjectPane {...projectPaneTexts[0]} />
     </>
   );
 }
