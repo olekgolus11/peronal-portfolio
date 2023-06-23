@@ -14,6 +14,15 @@ const ProjectPane = ({
   description,
   photo,
 }: ProjectPaneContent) => {
+  const createPaneHeader = () => {
+    return (
+      <>
+        <p className='text-h6 font-serif'>{title}</p>
+        <Badge className='w-max'>{timespan}</Badge>
+      </>
+    );
+  };
+
   const createPaneContent = () => {
     const accordionContent = description.map((accordionItem, index) => (
       <AccordionItem value={`item-${index}`}>
@@ -36,18 +45,9 @@ const ProjectPane = ({
     );
   };
 
-  const createPaneHeader = () => {
-    return (
-      <>
-        <p className='text-h6 font-serif'>{title}</p>
-        <Badge className='w-max'>{timespan}</Badge>
-      </>
-    );
-  };
-
   const createPaneFooter = () => {
     return (
-      <div className='flex gap-4 items-center mt-auto'>
+      <div className='flex gap-4 items-center mt-auto link'>
         <p className='text-h8 whitespace-nowrap'>SEE FULL DETAILS</p>
         <ArrowRight />
       </div>
