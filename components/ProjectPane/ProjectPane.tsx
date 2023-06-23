@@ -3,9 +3,9 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../shadcn-components/accordion";
+} from "@/components/ui/accordion";
 import { ArrowRight } from "lucide-react";
-import { Badge } from "../shadcn-components/badge";
+import { Badge } from "@/components/ui/badge";
 import ProjectPaneContent from "@/utils/interfaces/ProjectPaneContent";
 
 const ProjectPane = ({
