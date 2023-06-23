@@ -2,7 +2,7 @@
 
 import "./globals.css";
 import { Libre_Caslon_Display } from "next/font/google";
-import HomeGradientBackground from "./components/HomeGradientBackground/HomeGradientBackground";
+import HomeGradientBackground from "../components/HomeGradientBackground/HomeGradientBackground";
 
 const libre_caslon_display = Libre_Caslon_Display({
   weight: "400",
