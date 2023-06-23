@@ -11,6 +11,10 @@
     @apply mx-5 sm:mx-10 md:mx-20 lg:mx-36 xl:mx-60;
   }
 
+  .link {
+    @apply text-primary hover:underline hover:cursor-pointer;
+  }
+
   .text-h1 {
     @apply text-7xl sm:text-9xl md:text-[10rem] lg:text-[10rem] xl:text-[12rem];
   }
@@ -40,7 +44,7 @@
   }
 
   .text-h8 {
-    @apply text-4xl md:text-5xl lg:text-5xl xl:text-5xl;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl;
   }
 
   .text-p {
