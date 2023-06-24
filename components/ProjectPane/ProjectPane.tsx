@@ -67,7 +67,7 @@ const ProjectPane = ({
   };
 
   return (
-    <div className='flex flex-col md:flex-row my-10 md:h-[55vh] page-container pane'>
+    <div className='flex flex-col md:flex-row my-10 md:h-[55vh] pane box-border w-full'>
       <div className='flex flex-col p-14 gap-4 flex-1'>
         {createPaneHeader()}
         {createPaneContent()}

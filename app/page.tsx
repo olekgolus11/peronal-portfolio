@@ -14,7 +14,11 @@ export default function MainPage() {
         <TextSlider text='MY WORK' />
         <MyWorkGradientBackground />
       </div>
-      <ProjectPane {...projectPaneTexts[0]} />
+      <div className='flex flex-col items-center page-container'>
+        {projectPaneTexts.map((projectPaneText) => (
+          <ProjectPane {...projectPaneText} />
+        ))}
+      </div>
     </>
   );
 }

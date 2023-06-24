@@ -17,6 +17,22 @@ const projectPaneTexts: ProjectPaneContent[] = [
     ],
     photo: "idemian.jpg",
   },
+  {
+    projectId: 2,
+    title: "DW2023",
+    timespan: "01.23 - 03.23",
+    description: [
+      {
+        label: "Quick Overview",
+        content: `DW2023 was an informational website made specifically for the faculty day of my the faculty I study at.`,
+      },
+      {
+        label: "My responsibilities",
+        content: `I was responsible for both creating the website and deploying it.`,
+      },
+    ],
+    photo: "dw2023.jpg",
+  },
 ];
 
 export default projectPaneTexts;
