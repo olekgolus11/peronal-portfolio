@@ -56,11 +56,11 @@ const ProjectPane = ({
 
   const createPanePhoto = () => {
     return (
-      <div className='hidden md:flex flex-col border-l border-gray-100 mx-auto w-1/3'>
+      <div className='flex flex-col md:border-l border-gray-100 mx-auto'>
         <img
           src={photo}
           alt={photo}
-          className='object-cover rounded-r-md h-full'
+          className='object-cover rounded-md md:rounded-l-none h-full aspect-video md:aspect-auto align-top'
         />
       </div>
     );
