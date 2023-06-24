@@ -33,6 +33,22 @@ const projectPaneTexts: ProjectPaneContent[] = [
     ],
     photo: "dw2023.jpg",
   },
+  {
+    projectId: 3,
+    title: "Portfolio",
+    timespan: "02.23 - 07.23",
+    description: [
+      {
+        label: "Quick Overview",
+        content: `This website is my personal portfolio. It was made to showcase my skills and projects I've worked on. Buliding this website was a great opportunity to learn new technologies`,
+      },
+      {
+        label: "Technologies used",
+        content: `React, TypeScript, Next.js, Tailwind, Framer Motion, GSAP, React Three Fiber, Three.js, shadcn, Lucide`,
+      },
+    ],
+    photo: "photo.jpg",
+  },
 ];
 
 export default projectPaneTexts;
