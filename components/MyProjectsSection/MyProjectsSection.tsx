@@ -5,11 +5,16 @@ import TextSlider from "../TextSlider/TextSlider";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import isMobile from "@/utils/functions/isMobile";
+import isDeviceMobile from "@/utils/functions/isDeviceMobile";
 
 const MyProjectsSection = () => {
   const sectionRef = useRef(null!);
   const triggerRef = useRef(null!);
+
+  let isMobile: boolean;
+  useEffect(() => {
+    isMobile = isDeviceMobile();
+  }, []);
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -62,9 +67,9 @@ const MyProjectsSection = () => {
 
     return (
       <>
-        {isMobile() ? stickyBackground() : null}
+        {isMobile ? stickyBackground() : null}
         <div className="overflow-hidden h-full md:h-[100vh]" ref={triggerRef}>
-          {isMobile() ? null : stickyBackground()}
+          {isMobile ? null : stickyBackground()}
           <div className="flex flex-col md:flex-row" ref={sectionRef}>
             {projectPanes()}
           </div>

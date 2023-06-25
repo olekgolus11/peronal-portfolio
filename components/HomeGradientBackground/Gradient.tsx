@@ -6,13 +6,18 @@ import { Mesh } from "three";
 import * as THREE from "three";
 import vertexShader from "./vertexShader";
 import fragmentShader from "./fragmentShader";
+import { useMotionValue, useSpring } from "framer-motion";
 
 const Gradient = () => {
   const meshRef = useRef<Mesh>(null!);
   const SEGMENTS = 500;
   const sphereGeometry = new THREE.SphereGeometry(4, SEGMENTS, SEGMENTS);
   const windowSize = new THREE.Vector2(window.innerWidth, window.innerHeight);
-  const mouseInit = new THREE.Vector2(0, 0);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x);
+  const springY = useSpring(y);
+  const mouseInit = new THREE.Vector2(springX.get(), springY.get());
 
   const uniforms = useMemo(
     () => ({
@@ -32,7 +37,9 @@ const Gradient = () => {
   useFrame((state) => {
     const { clock, mouse } = state;
     uniforms.u_time.value = 0.4 * clock.getElapsedTime();
-    uniforms.u_mouse.value = mouse;
+    springX.set(mouse.x);
+    springY.set(mouse.y);
+    uniforms.u_mouse.value.set(springX.get(), springY.get());
   });
 
   return (
