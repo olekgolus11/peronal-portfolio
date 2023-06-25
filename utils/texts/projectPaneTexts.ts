@@ -44,7 +44,7 @@ const projectPaneTexts: ProjectPaneContent[] = [
       },
       {
         label: "Technologies used",
-        content: `React, TypeScript, Next.js, Tailwind, Framer Motion, GSAP, React Three Fiber, Three.js, shadcn, Lucide`,
+        content: `React, TypeScript, Next.js, Tailwind. For animations I used Framer Motion, GSAP and React Three Fiber. Shadcn and Lucide was used for icons and components.`,
       },
     ],
     photo: "photo.jpg",

@@ -5,16 +5,20 @@ import TextSlider from "../TextSlider/TextSlider";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import isMobile from "@/utils/functions/isMobile";
 
 const MyProjectsSection = () => {
-  const sectionRef = useRef(null);
-  const triggerRef = useRef(null);
+  const sectionRef = useRef(null!);
+  const triggerRef = useRef(null!);
 
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     let mm = gsap.matchMedia();
     let pin: any = null;
+    const SCROLL_COUNT = 12;
+    const SLIDES_COUNT = projectPaneTexts.length;
+    const SLIDE_LENGTH = (SLIDES_COUNT - 1) * 100;
 
     mm.add("(min-width: 768px)", () => {
       pin = gsap.fromTo(
@@ -23,32 +27,14 @@ const MyProjectsSection = () => {
           translateX: 0,
         },
         {
-          translateX: "-200vw",
+          translateX: `-${SLIDES_COUNT - 1}00vw`,
           ease: "none",
           duration: 3,
           scrollTrigger: {
             trigger: triggerRef.current,
-            scrub: 0.6,
+            scrub: true,
             pin: true,
-          },
-        }
-      );
-    });
-
-    mm.add("(max-width: 768px)", () => {
-      pin = gsap.fromTo(
-        sectionRef.current,
-        {
-          translateY: 0,
-        },
-        {
-          translateY: "-200vh",
-          ease: "none",
-          duration: 2,
-          scrollTrigger: {
-            trigger: triggerRef.current,
-            scrub: 0.0,
-            pin: true,
+            end: `+=${SCROLL_COUNT * SLIDE_LENGTH}vw`,
           },
         }
       );
@@ -59,21 +45,35 @@ const MyProjectsSection = () => {
     };
   }, []);
 
-  return (
-    <div className='overflow-hidden h-[200vh]' ref={triggerRef}>
-      <div className='sticky top-0'>
-        <TextSlider text='MY WORK' />
+  const createMyProjectsSection = () => {
+    const stickyBackground = () => (
+      <div className="sticky top-0">
+        <TextSlider text="MY WORK" />
         <MyWorkGradientBackground />
       </div>
-      <div className='flex flex-col md:flex-row ' ref={sectionRef}>
-        {projectPaneTexts.map((projectPaneText) => (
-          <div className='w-screen flex-none'>
-            <ProjectPane {...projectPaneText} />
+    );
+
+    const projectPanes = () =>
+      projectPaneTexts.map((projectPaneText) => (
+        <div className="w-screen flex-none">
+          <ProjectPane {...projectPaneText} />
+        </div>
+      ));
+
+    return (
+      <>
+        {isMobile() ? stickyBackground() : null}
+        <div className="overflow-hidden h-full md:h-[100vh]" ref={triggerRef}>
+          {isMobile() ? null : stickyBackground()}
+          <div className="flex flex-col md:flex-row" ref={sectionRef}>
+            {projectPanes()}
           </div>
-        ))}
-      </div>
-    </div>
-  );
+        </div>
+      </>
+    );
+  };
+
+  return createMyProjectsSection();
 };
 
 export default MyProjectsSection;
