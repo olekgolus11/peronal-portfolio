@@ -3,17 +3,17 @@ import MyWorkGradientBackground from "../MyWorkGradientBackground/MyWorkGradient
 import ProjectPane from "../ProjectPane/ProjectPane";
 import TextSlider from "../TextSlider/TextSlider";
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import isDeviceMobile from "@/utils/functions/isDeviceMobile";
 
 const MyProjectsSection = () => {
   const sectionRef = useRef(null!);
   const triggerRef = useRef(null!);
+  const [isMobile, setIsMobile] = useState(false);
 
-  let isMobile: boolean;
   useEffect(() => {
-    isMobile = isDeviceMobile();
+    setIsMobile(isDeviceMobile());
   }, []);
 
   gsap.registerPlugin(ScrollTrigger);
