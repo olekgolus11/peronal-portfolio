@@ -9,8 +9,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["ui-sans-serif", "system-ui"],
+      sans: ["var(--font-montserrat)", "system-ui"],
       serif: ["var(--font-libre-caslon-display)", "ui-serif"],
+      italic: ["var(--font-libre-caslon-text)", "ui-serif"],
       mono: ["ui-monospace", "SFMono-Regular"],
     },
     container: {
