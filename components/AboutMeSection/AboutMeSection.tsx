@@ -1,12 +1,10 @@
-import MyWorkGradientBackground from "../MyWorkGradientBackground/MyWorkGradientBackground";
-import TextSlider from "../TextSlider/TextSlider";
+import AboutMeGradientBackground from "../AboutMeGradientBackground/AboutMeGradientBackground";
 
 const AboutMeSection = () => {
   return (
     <>
       <div className="sticky top-0 -z-10">
-        <TextSlider text="ABOUT ME" />
-        <MyWorkGradientBackground />
+        <AboutMeGradientBackground />
       </div>
       <div className="page-container font-sans font-light">
         <p className="text-h4">
