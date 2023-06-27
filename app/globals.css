@@ -7,8 +7,16 @@
     @apply backdrop-blur bg-gray-800 rounded-md bg-clip-padding backdrop-filter bg-opacity-30 border border-gray-100;
   }
 
+  .page-container-l {
+    @apply ml-5 sm:ml-10 md:ml-20 lg:ml-36 xl:ml-60;
+  }
+
+  .page-container-r {
+    @apply mr-5 sm:mr-10 md:mr-20 lg:mr-36 xl:mr-60;
+  }
+
   .page-container {
-    @apply mx-5 sm:mx-10 md:mx-20 lg:mx-36 xl:mx-60;
+    @apply page-container-r page-container-l;
   }
 
   .link {

@@ -55,6 +55,14 @@ const AboutMeSection = () => {
       <div className='page-container h-screen flex items-center'>
         {createIntroducingText()}
       </div>
+      <div className='page-container-l flex'>
+        <div className='text-h6 font-sans font-light mix-blend-difference'>
+          As of now I have just over
+          <br />
+          <span className='font-italic'>1 year of commercial experience.</span>
+        </div>
+        <img src='photo.jpg' className='max-h-[90vh] ml-auto' />
+      </div>
     </>
   );
 };
