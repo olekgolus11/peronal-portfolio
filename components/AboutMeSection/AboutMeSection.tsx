@@ -18,7 +18,7 @@ const AboutMeSection = () => {
             trigger: lineId,
             start: "top bottom",
             end: "bottom top",
-            scrub: true,
+            scrub: 0.5,
           },
         }
       );
@@ -30,24 +30,30 @@ const AboutMeSection = () => {
     animateLine("#about-me-line-4", "-5vw", "8vw");
   }, []);
 
+  const createIntroducingText = () => {
+    return (
+      <p className='text-h4 font-sans font-light mix-blend-difference'>
+        <div id='about-me-line-1'>
+          Hi! I'm <span className='font-italic'>Aleksander.</span>
+        </div>
+        <div id='about-me-line-2'>I'm a 21 years old</div>
+        <div id='about-me-line-3' className='font-italic whitespace-nowrap'>
+          front-end developer
+        </div>
+        <div id='about-me-line-4'>
+          from <span className='font-italic'>Poland.</span>
+        </div>
+      </p>
+    );
+  };
+
   return (
     <>
-      <div className="sticky top-0 -z-10">
+      <div className='sticky top-0 -z-10'>
         <AboutMeGradientBackground />
       </div>
-      <div className="page-container font-sans font-light h-screen flex items-center mix-blend-difference">
-        <p className="text-h4">
-          <div id="about-me-line-1">
-            Hi! I'm <span className="font-italic">Aleksander.</span>
-          </div>
-          <div id="about-me-line-2">I'm a 21 years old</div>
-          <div id="about-me-line-3" className="font-italic whitespace-nowrap">
-            front-end developer
-          </div>
-          <div id="about-me-line-4">
-            from <span className="font-italic">Poland.</span>
-          </div>
-        </p>
+      <div className='page-container h-screen flex items-center'>
+        {createIntroducingText()}
       </div>
     </>
   );
