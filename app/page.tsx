@@ -10,6 +10,7 @@ export default function MainPage() {
       <LandingSection />
       <MyProjectsSection />
       <AboutMeSection />
+      <LandingSection />
     </>
   );
 }
