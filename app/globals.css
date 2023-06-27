@@ -16,39 +16,39 @@
   }
 
   .text-h1 {
-    @apply text-7xl sm:text-9xl md:text-[10rem] lg:text-[10rem] xl:text-[12rem];
+    @apply text-7xl sm:text-9xl md:text-[9rem] lg:text-[9rem] xl:text-[9rem] 2xl:text-[12rem];
   }
 
   .text-h2 {
-    @apply text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem];
+    @apply text-6xl md:text-8xl lg:text-[9rem] xl:text-[10rem] 2xl:text-[11rem];
   }
 
   .text-h3 {
-    @apply text-4xl md:text-6xl lg:text-[7rem] xl:text-[9rem];
+    @apply text-4xl md:text-6xl lg:text-[7rem] xl:text-[8rem] 2xl:text-[9rem];
   }
 
   .text-h4 {
-    @apply text-4xl md:text-5xl lg:text-8xl xl:text-9xl;
+    @apply text-4xl md:text-5xl lg:text-8xl xl:text-8xl 2xl:text-9xl;
   }
 
   .text-h5 {
-    @apply text-4xl md:text-5xl lg:text-7xl xl:text-8xl;
+    @apply text-4xl md:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl;
   }
 
   .text-h6 {
-    @apply text-4xl md:text-5xl lg:text-7xl xl:text-7xl;
+    @apply text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-7xl;
   }
 
   .text-h7 {
-    @apply text-4xl md:text-5xl lg:text-6xl xl:text-6xl;
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl;
   }
 
   .text-h8 {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl;
+    @apply text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-5xl;
   }
 
   .text-p {
-    @apply text-sm lg:text-base xl:text-lg;
+    @apply text-sm lg:text-sm xl:text-sm 2xl:text-lg;
   }
 }
 

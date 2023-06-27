@@ -7,7 +7,7 @@ const TextSlider = ({ text }: { text: string }) => {
         <motion.p
           animate={{ x: "-100%" }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          className='text-h1 font-serif text-center py-12 px-2 sm:px-3 md:px-5 lg:px-6'
+          className='text-h1 font-serif text-center px-2 sm:px-3 md:px-5 lg:px-6'
         >
           {text}
         </motion.p>
