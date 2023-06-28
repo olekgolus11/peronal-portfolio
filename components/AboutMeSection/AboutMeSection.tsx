@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import AboutMeGradientBackground from "../AboutMeGradientBackground/AboutMeGradientBackground";
+import Image from "next/image";
+import Photo2 from "@/public/photo2.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,7 +63,12 @@ const AboutMeSection = () => {
           <br />
           <span className='font-italic'>1 year of commercial experience.</span>
         </div>
-        <img src='photo.jpg' className='max-h-[90vh] ml-auto' />
+        <Image
+          src={Photo2}
+          className='w-[35vw] max-h-[70vh] ml-auto object-contain aspect-phone'
+          alt='elo'
+        />
+        {/* <img src='photo2.jpg' className='max-h-[90vh] ml-auto' /> */}
       </div>
     </>
   );
