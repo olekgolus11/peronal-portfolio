@@ -25,48 +25,14 @@ const AboutMeSection = () => {
         }
       );
     };
-    const tl = gsap.timeline();
-    gsap.to("#about-me-biography-container", {
+    gsap.from("#about-me-biography-content", {
       y: 0,
-      duration: 1,
       scrollTrigger: {
-        trigger: "#about-me-biography-container",
+        trigger: "#about-me-biography-content",
         scrub: 0.5,
         pin: true,
-        start: "top 20%",
+        start: "top top",
         end: "bottom top",
-      },
-    });
-    gsap.from("#about-me-biography-p-2", {
-      translateY: "100vh",
-      duration: 1,
-      scrollTrigger: {
-        trigger: "#about-me-biography-container",
-        start: "top 70%",
-        end: "+=700",
-        scrub: 0.5,
-        markers: true,
-      },
-    });
-    gsap.from("#about-me-biography-p-3", {
-      translateY: "100vh",
-      duration: 1,
-      scrollTrigger: {
-        trigger: "#about-me-biography-container",
-        start: "top 50%",
-        end: "+=700",
-        scrub: 0.5,
-        markers: true,
-      },
-    });
-    gsap.from("#about-me-biography-p-4", {
-      translateY: "100vh",
-      duration: 1,
-      scrollTrigger: {
-        trigger: "#about-me-biography-container",
-        start: "top 30%",
-        end: "+=700",
-        scrub: 0.5,
         markers: true,
       },
     });
@@ -106,10 +72,10 @@ const AboutMeSection = () => {
         {createIntroducingText()}
       </div>
       <div
-        id='about-me-biography-container'
-        className='page-container-l flex gap-16 h-[200vh] items-start'
+        id='about-me-biography-content'
+        className='page-container-l flex gap-16 items-start'
       >
-        <div className='text-p-xl font-sans font-light mix-blend-difference'>
+        <div className='text-p-xl font-sans font-light mix-blend-difference h-full'>
           <div id='about-me-biography-p-1'>
             I've always been a person who wanted to express himself so to match
             my creativity with my passion for technology I started learning 3D
@@ -135,10 +101,9 @@ const AboutMeSection = () => {
         </div>
         <Image
           src={Photo2}
-          className='w-[30vw] ml-auto object-contain'
+          className='w-[30vw] h-full ml-auto object-contain'
           alt='elo'
         />
-        {/* <img src='photo2.jpg' className='max-h-[90vh] ml-auto' /> */}
       </div>
     </>
   );
