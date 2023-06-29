@@ -58,6 +58,14 @@
   .text-p {
     @apply text-sm lg:text-sm xl:text-sm 2xl:text-lg;
   }
+
+  .text-p-lg {
+    @apply text-lg lg:text-lg xl:text-lg 2xl:text-2xl;
+  }
+
+  .text-p-xl {
+    @apply text-xl lg:text-xl xl:text-xl 2xl:text-3xl;
+  }
 }
 
 @layer base {
