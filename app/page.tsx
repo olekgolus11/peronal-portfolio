@@ -11,6 +11,7 @@ export default function MainPage() {
       <MyProjectsSection />
       <AboutMeSection />
       <LandingSection />
+      <LandingSection />
     </>
   );
 }

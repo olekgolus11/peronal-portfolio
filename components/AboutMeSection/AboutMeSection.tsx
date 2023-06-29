@@ -25,6 +25,51 @@ const AboutMeSection = () => {
         }
       );
     };
+    const tl = gsap.timeline();
+    gsap.to("#about-me-biography-container", {
+      y: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: "#about-me-biography-container",
+        scrub: 0.5,
+        pin: true,
+        start: "top 20%",
+        end: "bottom top",
+      },
+    });
+    gsap.from("#about-me-biography-p-2", {
+      translateY: "100vh",
+      duration: 1,
+      scrollTrigger: {
+        trigger: "#about-me-biography-container",
+        start: "top 70%",
+        end: "+=700",
+        scrub: 0.5,
+        markers: true,
+      },
+    });
+    gsap.from("#about-me-biography-p-3", {
+      translateY: "100vh",
+      duration: 1,
+      scrollTrigger: {
+        trigger: "#about-me-biography-container",
+        start: "top 50%",
+        end: "+=700",
+        scrub: 0.5,
+        markers: true,
+      },
+    });
+    gsap.from("#about-me-biography-p-4", {
+      translateY: "100vh",
+      duration: 1,
+      scrollTrigger: {
+        trigger: "#about-me-biography-container",
+        start: "top 30%",
+        end: "+=700",
+        scrub: 0.5,
+        markers: true,
+      },
+    });
 
     animateLine("#about-me-intro-line-1", "6vw", "-9vw");
     animateLine("#about-me-intro-line-2", "-8vw", "9vw");
@@ -60,7 +105,10 @@ const AboutMeSection = () => {
       <div className='page-container h-screen flex items-center'>
         {createIntroducingText()}
       </div>
-      <div className='page-container-l flex gap-16'>
+      <div
+        id='about-me-biography-container'
+        className='page-container-l flex gap-16 h-[200vh] items-start'
+      >
         <div className='text-p-xl font-sans font-light mix-blend-difference'>
           <div id='about-me-biography-p-1'>
             I've always been a person who wanted to express himself so to match
