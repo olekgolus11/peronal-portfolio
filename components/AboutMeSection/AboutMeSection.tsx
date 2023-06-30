@@ -11,112 +11,76 @@ const AboutMeSection = () => {
   const biographyRef = useRef(null!);
   const pinContainerRef = useRef(null!);
 
+  const animateLine = (lineId: string, initialX: string, finalX: string) =>
+    gsap.fromTo(
+      lineId,
+      { x: initialX },
+      {
+        x: finalX,
+        ease: "none",
+        scrollTrigger: {
+          trigger: lineId,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 0.5,
+        },
+      }
+    );
+
+  const animateParapgraph = (elementId: string, start: string) =>
+    gsap.fromTo(
+      elementId,
+      { y: "100vh" },
+      {
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: biographyRef.current,
+          scrub: 0.5,
+          markers: true,
+          start,
+          end: "+=500",
+        },
+      }
+    );
+
   useEffect(() => {
-    const animateLine = (lineId: string, initialX: string, finalX: string) => {
-      gsap.fromTo(
-        lineId,
-        { x: initialX },
-        {
-          x: finalX,
-          ease: "none",
-          scrollTrigger: {
-            trigger: lineId,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.5,
-          },
-        }
-      );
+    const tweens: gsap.core.Tween[] = [];
+
+    tweens.push(animateLine("#about-me-intro-line-1", "6vw", "-9vw"));
+    tweens.push(animateLine("#about-me-intro-line-2", "-8vw", "9vw"));
+    tweens.push(animateLine("#about-me-intro-line-3", "8vw", "-7vw"));
+    tweens.push(animateLine("#about-me-intro-line-4", "-5vw", "8vw"));
+
+    return () => {
+      tweens.forEach((tween) => tween.kill());
     };
-    animateLine("#about-me-intro-line-1", "6vw", "-9vw");
-    animateLine("#about-me-intro-line-2", "-8vw", "9vw");
-    animateLine("#about-me-intro-line-3", "8vw", "-7vw");
-    animateLine("#about-me-intro-line-4", "-5vw", "8vw");
   }, []);
 
   useEffect(() => {
-    let pin = gsap.to("#about-me-biography-content", {
-      y: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: biographyRef.current,
-        scrub: 0.5,
-        pin: pinContainerRef.current,
-        start: "top 20%",
-        end: "bottom center",
-      },
-    });
+    const tweens: gsap.core.Tween[] = [];
 
-    let pin1 = gsap.fromTo(
-      "#about-me-biography-p-1",
-      { y: "100vh" },
-      {
+    tweens.push(
+      gsap.to("#about-me-biography-content", {
         y: 0,
         duration: 1,
         scrollTrigger: {
           trigger: biographyRef.current,
           scrub: 0.5,
+          pin: pinContainerRef.current,
           start: "top 20%",
-          end: "+=500",
-          markers: true,
+          end: "bottom center",
         },
-      }
+      })
     );
 
-    let pin2 = gsap.fromTo(
-      "#about-me-biography-p-2",
-      { y: "100vh" },
-      {
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: biographyRef.current,
-          scrub: 0.5,
-          start: "25% 20%",
-          end: "+=500",
-          markers: true,
-        },
-      }
-    );
-
-    let pin3 = gsap.fromTo(
-      "#about-me-biography-p-3",
-      { y: "100vh" },
-      {
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: biographyRef.current,
-          scrub: 0.5,
-          start: "50% 20%",
-          end: "+=500",
-          markers: true,
-        },
-      }
-    );
-
-    let pin4 = gsap.fromTo(
-      "#about-me-biography-p-4",
-      { y: "100vh" },
-      {
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: biographyRef.current,
-          scrub: 0.5,
-          start: "75% 20%",
-          end: "+=500",
-          markers: true,
-        },
-      }
-    );
+    tweens.push(animateParapgraph("#about-me-biography-p-1", "top 20%"));
+    tweens.push(animateParapgraph("#about-me-biography-p-2", "25% 20%"));
+    tweens.push(animateParapgraph("#about-me-biography-p-3", "50% 20%"));
+    tweens.push(animateParapgraph("#about-me-biography-p-4", "75% 20%"));
 
     return () => {
-      pin.kill();
-      pin1.kill();
-      pin2.kill();
-      pin3.kill();
-      pin4.kill();
+      tweens.forEach((tween) => tween.kill());
     };
   });
 
@@ -181,7 +145,7 @@ const AboutMeSection = () => {
             <Image
               src={Photo2}
               className='w-[30vw] max-h-[50vh] h-full ml-auto object-contain'
-              alt='elo'
+              alt='me'
             />
           </div>
         </div>
