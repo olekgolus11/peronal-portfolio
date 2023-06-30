@@ -8,7 +8,8 @@ import Photo2 from "@/public/photo2.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutMeSection = () => {
-  const bioRef = useRef(null!);
+  const biographyRef = useRef(null!);
+  const pinContainerRef = useRef(null!);
 
   useEffect(() => {
     const animateLine = (lineId: string, initialX: string, finalX: string) => {
@@ -38,11 +39,11 @@ const AboutMeSection = () => {
       y: 0,
       duration: 1,
       scrollTrigger: {
-        trigger: bioRef.current,
+        trigger: biographyRef.current,
         scrub: 0.5,
-        pin: true,
+        pin: pinContainerRef.current,
         start: "top 20%",
-        end: "bottom top",
+        end: "bottom center",
       },
     });
 
@@ -53,7 +54,7 @@ const AboutMeSection = () => {
         y: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: "#about-me-biography-content",
+          trigger: biographyRef.current,
           scrub: 0.5,
           start: "top 20%",
           end: "+=500",
@@ -69,7 +70,7 @@ const AboutMeSection = () => {
         y: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: "#about-me-biography-content",
+          trigger: biographyRef.current,
           scrub: 0.5,
           start: "25% 20%",
           end: "+=500",
@@ -85,7 +86,7 @@ const AboutMeSection = () => {
         y: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: "#about-me-biography-content",
+          trigger: biographyRef.current,
           scrub: 0.5,
           start: "50% 20%",
           end: "+=500",
@@ -101,7 +102,7 @@ const AboutMeSection = () => {
         y: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: "#about-me-biography-content",
+          trigger: biographyRef.current,
           scrub: 0.5,
           start: "75% 20%",
           end: "+=500",
@@ -147,40 +148,42 @@ const AboutMeSection = () => {
       <div className='page-container h-screen flex items-center'>
         {createIntroducingText()}
       </div>
-      <div id='hidden-trigger' ref={bioRef} className='h-[50vh]'>
-        <div
-          id='about-me-biography-content'
-          className='page-container-l flex gap-16 items-start h-full'
-        >
-          <div className='text-p-xl font-sans font-light mix-blend-difference h-full'>
-            <div id='about-me-biography-p-1'>
-              I've always been a person who wanted to express himself so to
-              match my creativity with my passion for technology I started
-              learning 3D graphics in blender.
+      <div ref={biographyRef} className='h-[300vh]'>
+        <div ref={pinContainerRef}>
+          <div
+            id='about-me-biography-content'
+            className='page-container-l flex gap-16 items-start'
+          >
+            <div className='text-p-xl font-sans font-light mix-blend-difference'>
+              <div id='about-me-biography-p-1'>
+                I've always been a person who wanted to express himself so to
+                match my creativity with my passion for technology I started
+                learning 3D graphics in blender.
+              </div>
+              <br />
+              <div id='about-me-biography-p-2'>
+                I've had so much fun with it but I wanted to do something more,
+                something that I could connect it with my programming skills.
+              </div>
+              <br />
+              <div id='about-me-biography-p-3'>
+                That's why I started learning front-end development and just
+                after few months I had an opportunity to work as a front-end
+                developer trainee in IDEMIA.
+              </div>
+              <br />
+              <div id='about-me-biography-p-4'>
+                My main goal was to be a fullstack developer and so right after
+                I finished my internship I got myself into another one but this
+                time as a fullstack developer.
+              </div>
             </div>
-            <br />
-            <div id='about-me-biography-p-2'>
-              I've had so much fun with it but I wanted to do something more,
-              something that I could connect it with my programming skills.
-            </div>
-            <br />
-            <div id='about-me-biography-p-3'>
-              That's why I started learning front-end development and just after
-              few months I had an opportunity to work as a front-end developer
-              trainee in IDEMIA.
-            </div>
-            <br />
-            <div id='about-me-biography-p-4'>
-              My main goal was to be a fullstack developer and so right after I
-              finished my internship I got myself into another one but this time
-              as a fullstack developer.
-            </div>
+            <Image
+              src={Photo2}
+              className='w-[30vw] max-h-[50vh] h-full ml-auto object-contain'
+              alt='elo'
+            />
           </div>
-          <Image
-            src={Photo2}
-            className='w-[30vw] h-full ml-auto object-contain'
-            alt='elo'
-          />
         </div>
       </div>
     </>
