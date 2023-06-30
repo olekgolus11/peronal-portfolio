@@ -39,15 +39,83 @@ const AboutMeSection = () => {
       duration: 1,
       scrollTrigger: {
         trigger: bioRef.current,
-        scrub: true,
+        scrub: 0.5,
         pin: true,
         start: "top 20%",
         end: "bottom top",
-        markers: true,
       },
     });
+
+    let pin1 = gsap.fromTo(
+      "#about-me-biography-p-1",
+      { y: "100vh" },
+      {
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#about-me-biography-content",
+          scrub: 0.5,
+          start: "top 20%",
+          end: "+=500",
+          markers: true,
+        },
+      }
+    );
+
+    let pin2 = gsap.fromTo(
+      "#about-me-biography-p-2",
+      { y: "100vh" },
+      {
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#about-me-biography-content",
+          scrub: 0.5,
+          start: "25% 20%",
+          end: "+=500",
+          markers: true,
+        },
+      }
+    );
+
+    let pin3 = gsap.fromTo(
+      "#about-me-biography-p-3",
+      { y: "100vh" },
+      {
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#about-me-biography-content",
+          scrub: 0.5,
+          start: "50% 20%",
+          end: "+=500",
+          markers: true,
+        },
+      }
+    );
+
+    let pin4 = gsap.fromTo(
+      "#about-me-biography-p-4",
+      { y: "100vh" },
+      {
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#about-me-biography-content",
+          scrub: 0.5,
+          start: "75% 20%",
+          end: "+=500",
+          markers: true,
+        },
+      }
+    );
+
     return () => {
       pin.kill();
+      pin1.kill();
+      pin2.kill();
+      pin3.kill();
+      pin4.kill();
     };
   });
 
