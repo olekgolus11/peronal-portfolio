@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import AboutMeGradientBackground from "../AboutMeGradientBackground/AboutMeGradientBackground";
-import Image from "next/image";
-import Photo2 from "@/public/photo2.jpg";
+// import Image from "next/image";
+// import Photo2 from "@/public/photo2.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,7 +37,6 @@ const AboutMeSection = () => {
         scrollTrigger: {
           trigger: biographyRef.current,
           scrub: 0.5,
-          markers: true,
           start,
           end: "+=500",
         },
@@ -69,15 +68,15 @@ const AboutMeSection = () => {
           scrub: 0.5,
           pin: pinContainerRef.current,
           start: "top 20%",
-          end: "bottom center",
+          end: "bottom bottom",
         },
       })
     );
 
-    tweens.push(animateParapgraph("#about-me-biography-p-1", "top 20%"));
-    tweens.push(animateParapgraph("#about-me-biography-p-2", "25% 20%"));
-    tweens.push(animateParapgraph("#about-me-biography-p-3", "50% 20%"));
-    tweens.push(animateParapgraph("#about-me-biography-p-4", "75% 20%"));
+    tweens.push(animateParapgraph("#about-me-biography-p-1", "top bottom"));
+    tweens.push(animateParapgraph("#about-me-biography-p-2", "15% 20%"));
+    tweens.push(animateParapgraph("#about-me-biography-p-3", "30% 20%"));
+    tweens.push(animateParapgraph("#about-me-biography-p-4", "45% 20%"));
 
     return () => {
       tweens.forEach((tween) => tween.kill());
@@ -112,13 +111,13 @@ const AboutMeSection = () => {
       <div className='page-container h-screen flex items-center'>
         {createIntroducingText()}
       </div>
-      <div ref={biographyRef} className='h-[300vh]'>
+      <div ref={biographyRef} className='h-[300vh] mix-blend-difference'>
         <div ref={pinContainerRef}>
           <div
             id='about-me-biography-content'
-            className='page-container-l flex gap-16 items-start'
+            className='page-container flex gap-16 items-start'
           >
-            <div className='text-p-xl font-sans font-light mix-blend-difference'>
+            <p className='text-p-2xl font-sans font-light'>
               <div id='about-me-biography-p-1'>
                 I've always been a person who wanted to express himself so to
                 match my creativity with my passion for technology I started
@@ -141,12 +140,12 @@ const AboutMeSection = () => {
                 I finished my internship I got myself into another one but this
                 time as a fullstack developer.
               </div>
-            </div>
-            <Image
+            </p>
+            {/* <Image
               src={Photo2}
               className='w-[30vw] max-h-[50vh] h-full ml-auto object-contain'
               alt='me'
-            />
+            /> */}
           </div>
         </div>
       </div>

@@ -66,6 +66,10 @@
   .text-p-xl {
     @apply text-xl lg:text-xl xl:text-xl 2xl:text-3xl;
   }
+
+  .text-p-2xl {
+    @apply text-2xl lg:text-2xl xl:text-2xl 2xl:text-4xl;
+  }
 }
 
 @layer base {
