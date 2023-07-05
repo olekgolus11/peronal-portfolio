@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import AboutMeGradientBackground from "../AboutMeGradientBackground/AboutMeGradientBackground";
-// import Image from "next/image";
-// import Photo2 from "@/public/photo2.jpg";
+import Image from "next/image";
+import Photo2 from "@/public/photo2.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,6 +103,44 @@ const AboutMeSection = () => {
     );
   };
 
+  const createBiographyText = () => {
+    return (
+      <p className='text-p-2xl font-sans font-light'>
+        <div id='about-me-biography-p-1'>
+          I've always been a person who wanted to{" "}
+          <span className='font-italic'>express himself</span> so to match my{" "}
+          <span className='font-italic'>creativity</span> with my passion for{" "}
+          <span className='font-italic'>technology</span> I started learning{" "}
+          <span className='font-italic'>3D graphics in blender.</span>
+        </div>
+        <br />
+        <div id='about-me-biography-p-2'>
+          I've had so much <span className='font-italic'>fun</span> with it but
+          I wanted to do <span className='font-italic'>something more</span>,
+          something that I could connect to my{" "}
+          <span className='font-italic'>programming skills.</span>
+        </div>
+        <br />
+        <div id='about-me-biography-p-3'>
+          That's why I started learning{" "}
+          <span className='font-italic'>front-end development</span> and just
+          after few months I had an{" "}
+          <span className='font-italic'>opportunity</span> to work as a{" "}
+          <span className='font-italic'>front-end developer trainee</span> in
+          IDEMIA.
+        </div>
+        <br />
+        <div id='about-me-biography-p-4'>
+          My <span className='font-italic'>main goal</span> was to be a{" "}
+          <span className='font-italic'>fullstack developer</span> and so right
+          after I finished my <span className='font-italic'>internship</span> I
+          got myself into another one but this time as a{" "}
+          <span className='font-italic'>fullstack developer.</span>
+        </div>
+      </p>
+    );
+  };
+
   return (
     <>
       <div className='sticky top-0 -z-10'>
@@ -115,37 +153,14 @@ const AboutMeSection = () => {
         <div ref={pinContainerRef}>
           <div
             id='about-me-biography-content'
-            className='page-container flex gap-16 items-start'
+            className='page-container flex gap-16 items-start bg-black'
           >
-            <p className='text-p-2xl font-sans font-light'>
-              <div id='about-me-biography-p-1'>
-                I've always been a person who wanted to express himself so to
-                match my creativity with my passion for technology I started
-                learning 3D graphics in blender.
-              </div>
-              <br />
-              <div id='about-me-biography-p-2'>
-                I've had so much fun with it but I wanted to do something more,
-                something that I could connect it with my programming skills.
-              </div>
-              <br />
-              <div id='about-me-biography-p-3'>
-                That's why I started learning front-end development and just
-                after few months I had an opportunity to work as a front-end
-                developer trainee in IDEMIA.
-              </div>
-              <br />
-              <div id='about-me-biography-p-4'>
-                My main goal was to be a fullstack developer and so right after
-                I finished my internship I got myself into another one but this
-                time as a fullstack developer.
-              </div>
-            </p>
-            {/* <Image
+            <Image
               src={Photo2}
               className='w-[30vw] max-h-[50vh] h-full ml-auto object-contain'
               alt='me'
-            /> */}
+            />
+            {createBiographyText()}
           </div>
         </div>
       </div>
